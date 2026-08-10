@@ -130,7 +130,7 @@ export default function AdminDashboard() {
         <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
             <img 
-              src="/abbott-law-logo.svg" 
+              src="/abbott-law-logo.jpg" 
               alt="Abbott Law College" 
               className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 object-contain"
             />

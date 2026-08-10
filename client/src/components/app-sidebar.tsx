@@ -434,7 +434,7 @@ export function AppSidebar() {
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 items-center justify-center shrink-0">
             <img 
-              src="/abbott-law-logo.jpeg" 
+              src="/abbott-law-logo.jpg" 
               alt="Abbott Law College" 
               className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 object-contain"
             />
