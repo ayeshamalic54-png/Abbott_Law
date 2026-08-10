@@ -311,7 +311,7 @@ function Router() {
 }
 
 function AppContent() {
-  const { isAuthenticated, isLoading } = useAuth();
+  const { isAuthenticated, isLoading, user } = useAuth();
   
   // Custom sidebar width for professional layout - wider for better readability
   const style = {

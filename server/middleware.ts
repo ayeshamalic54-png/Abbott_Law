@@ -8,14 +8,14 @@ export function isAuthenticated(req: Request, res: Response, next: NextFunction)
   res.status(401).json({ message: "Unauthorized" });
 }
 
-// Role-based authorization middleware
+// Role-based authorization middleware (Admin has super-user access to all role endpoints)
 export function hasRole(...allowedRoles: string[]) {
   return (req: any, res: Response, next: NextFunction) => {
     if (!req.user) {
       return res.status(401).json({ message: "Unauthorized" });
     }
 
-    if (allowedRoles.includes(req.user.role)) {
+    if (req.user.role === 'admin' || allowedRoles.includes(req.user.role)) {
       return next();
     }
 
