@@ -1,0 +1,88 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Purple-Pink Gradient -->
+    <linearGradient id="groupBgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="50%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#d946ef"/>
+    </linearGradient>
+    
+    <!-- Gold Gradient -->
+    <linearGradient id="groupGoldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fcd34d"/>
+      <stop offset="50%" style="stop-color:#fbbf24"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+    
+    <!-- Shadow Filter -->
+    <filter id="groupShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Glow Effect -->
+    <filter id="groupGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main Background Circle -->
+  <circle cx="100" cy="100" r="96" fill="url(#groupBgGradient)" filter="url(#groupShadow)"/>
+  
+  <!-- Decorative Gold Ring -->
+  <circle cx="100" cy="100" r="88" fill="none" stroke="url(#groupGoldGradient)" stroke-width="2.5" opacity="0.8"/>
+  
+  <!-- Shield Shape -->
+  <path d="M 100,35 L 145,50 L 145,95 Q 145,125 100,145 Q 55,125 55,95 L 55,50 Z" 
+        fill="white" opacity="0.96" filter="url(#groupShadow)"/>
+  
+  <!-- Gold Banner Across Shield -->
+  <rect x="50" y="75" width="100" height="20" rx="3" fill="url(#groupGoldGradient)" filter="url(#groupGlow)"/>
+  
+  <!-- Letter "A" in Shield -->
+  <text x="100" y="67" font-family="Georgia, Times, serif" font-size="28" font-weight="bold" 
+        fill="#7c3aed" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">ABBOTT</text>
+  
+  <!-- Graduation Cap & Books Icon -->
+  <g transform="translate(100, 108)" filter="url(#groupGlow)">
+    <!-- Book Stack -->
+    <rect x="-20" y="5" width="40" height="6" rx="1" fill="#7c3aed" opacity="0.9"/>
+    <rect x="-18" y="11" width="36" height="6" rx="1" fill="#a855f7" opacity="0.8"/>
+    <rect x="-16" y="17" width="32" height="6" rx="1" fill="#d946ef" opacity="0.7"/>
+    
+    <!-- Graduation Cap -->
+    <path d="M -22,-5 L 0,-15 L 22,-5 L 0,5 Z" fill="url(#groupGoldGradient)"/>
+    <ellipse cx="0" cy="5" rx="18" ry="4" fill="url(#groupGoldGradient)" opacity="0.8"/>
+    
+    <!-- Tassel -->
+    <line x1="15" y1="-5" x2="15" y2="8" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="15" cy="10" r="2.5" fill="#fbbf24"/>
+  </g>
+  
+  <!-- Laurel Wreath Left Side -->
+  <path d="M 45,85 Q 40,82 42,78 Q 44,82 45,85 M 40,80 Q 35,77 37,73 Q 39,77 40,80 M 35,75 Q 30,72 32,68 Q 34,72 35,75" 
+        fill="none" stroke="url(#groupGoldGradient)" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+  
+  <!-- Laurel Wreath Right Side -->
+  <path d="M 155,85 Q 160,82 158,78 Q 156,82 155,85 M 160,80 Q 165,77 163,73 Q 161,77 160,80 M 165,75 Q 170,72 168,68 Q 166,72 165,75" 
+        fill="none" stroke="url(#groupGoldGradient)" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+  
+  <!-- Bottom Text: GROUP OF COLLEGES -->
+  <text x="100" y="158" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" 
+        fill="white" text-anchor="middle" letter-spacing="1.5">GROUP OF COLLEGES</text>
+  
+  <!-- Sub Text: MANSEHRA -->
+  <text x="100" y="173" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="600" 
+        fill="white" text-anchor="middle" letter-spacing="1.5" opacity="0.9">MANSEHRA</text>
+</svg>

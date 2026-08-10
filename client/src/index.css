@@ -1,0 +1,748 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+}
+
+/* LIGHT MODE */
+:root {
+  --button-outline: rgba(0,0,0, .10);
+  --badge-outline: rgba(0,0,0, .05);
+
+  /* Automatic computation of border around primary / danger buttons */
+  --opaque-button-border-intensity: -8; /* In terms of percentages */
+
+  /* Backgrounds applied on top of other backgrounds when hovered/active */
+  --elevate-1: rgba(0,0,0, .03);
+  --elevate-2: rgba(0,0,0, .08);
+
+  --background: 0 0% 100%;
+
+  --foreground: 215 25% 27%;
+
+  --border: 214 20% 88%;
+
+  --card: 0 0% 100%;
+
+  --card-foreground: 215 25% 27%;
+
+  --card-border: 214 20% 90%;
+
+  --sidebar: 217 91% 24%;
+
+  --sidebar-foreground: 210 40% 98%;
+
+  --sidebar-border: 217 91% 20%;
+
+  --sidebar-primary: 217 91% 60%;
+
+  --sidebar-primary-foreground: 0 0% 100%;
+
+  --sidebar-accent: 217 91% 30%;
+
+  --sidebar-accent-foreground: 210 40% 98%;
+
+  --sidebar-ring: 217 91% 60%;
+
+  --popover: 0 0% 100%;
+
+  --popover-foreground: 215 25% 27%;
+
+  --popover-border: 214 20% 90%;
+
+  --primary: 217 91% 60%;
+
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 214 20% 95%;
+
+  --secondary-foreground: 215 25% 27%;
+
+  --muted: 214 20% 96%;
+
+  --muted-foreground: 215 16% 47%;
+
+  --accent: 217 91% 92%;
+
+  --accent-foreground: 217 91% 20%;
+
+  --destructive: 0 84% 60%;
+
+  --destructive-foreground: 0 0% 100%;
+
+  --input: 214 32% 75%;
+  --ring: 221 83% 53%;
+  --chart-1: 221 83% 53%;
+  --chart-2: 142 71% 45%;
+  --chart-3: 262 83% 58%;
+  --chart-4: 32 95% 44%;
+  --chart-5: 340 82% 52%;
+
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Space Grotesk', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --radius: .5rem; /* 8px */
+  --shadow-2xs: 0px 2px 0px 0px hsl(214 32% 20% / 0.02);
+  --shadow-xs: 0px 2px 0px 0px hsl(214 32% 20% / 0.03);
+  --shadow-sm: 0px 2px 0px 0px hsl(214 32% 20% / 0.04), 0px 1px 2px -1px hsl(214 32% 20% / 0.05);
+  --shadow: 0px 2px 0px 0px hsl(214 32% 20% / 0.05), 0px 1px 2px -1px hsl(214 32% 20% / 0.06);
+  --shadow-md: 0px 2px 0px 0px hsl(214 32% 20% / 0.06), 0px 2px 4px -1px hsl(214 32% 20% / 0.07);
+  --shadow-lg: 0px 2px 0px 0px hsl(214 32% 20% / 0.07), 0px 4px 6px -1px hsl(214 32% 20% / 0.08);
+  --shadow-xl: 0px 2px 0px 0px hsl(214 32% 20% / 0.08), 0px 8px 10px -1px hsl(214 32% 20% / 0.10);
+  --shadow-2xl: 0px 2px 0px 0px hsl(214 32% 20% / 0.12);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  /* Automatically computed borders - intensity can be controlled by the user by the --opaque-button-border-intensity setting */
+
+  /* Fallback for older browsers */
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --primary-border: hsl(var(--primary));
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --secondary-border: hsl(var(--secondary));
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --muted-border: hsl(var(--muted));
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --accent-border: hsl(var(--accent));
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --destructive-border: hsl(var(--destructive));
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+.dark {
+  --button-outline: rgba(255,255,255, .10);
+  --badge-outline: rgba(255,255,255, .05);
+
+  --opaque-button-border-intensity: 9;  /* In terms of percentages */
+
+  /* Backgrounds applied on top of other backgrounds when hovered/active */
+  --elevate-1: rgba(255,255,255, .04);
+  --elevate-2: rgba(255,255,255, .09);
+
+  --background: 217 33% 10%;
+
+  --foreground: 210 40% 98%;
+
+  --border: 217 33% 17%;
+
+  --card: 217 33% 13%;
+
+  --card-foreground: 210 40% 98%;
+
+  --card-border: 217 33% 19%;
+
+  --sidebar: 217 91% 20%;
+
+  --sidebar-foreground: 210 40% 98%;
+
+  --sidebar-border: 217 91% 16%;
+
+  --sidebar-primary: 217 91% 60%;
+
+  --sidebar-primary-foreground: 0 0% 100%;
+
+  --sidebar-accent: 217 91% 28%;
+
+  --sidebar-accent-foreground: 210 40% 98%;
+
+  --sidebar-ring: 217 91% 60%;
+
+  --popover: 217 33% 15%;
+
+  --popover-foreground: 210 40% 98%;
+
+  --popover-border: 217 33% 24%;
+
+  --primary: 217 91% 60%;
+
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 217 20% 23%;
+
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 217 15% 21%;
+
+  --muted-foreground: 215 20% 65%;
+
+  --accent: 217 91% 25%;
+
+  --accent-foreground: 217 91% 95%;
+
+  --destructive: 0 84% 60%;
+
+  --destructive-foreground: 0 0% 100%;
+
+  --input: 217 33% 40%;
+  --ring: 221 83% 53%;
+  --chart-1: 217 91% 60%;
+  --chart-2: 142 69% 58%;
+  --chart-3: 262 80% 65%;
+  --chart-4: 32 98% 56%;
+  --chart-5: 340 75% 60%;
+
+  --shadow-2xs: 0px 2px 0px 0px hsl(217 33% 5% / 0.15);
+  --shadow-xs: 0px 2px 0px 0px hsl(217 33% 5% / 0.20);
+  --shadow-sm: 0px 2px 0px 0px hsl(217 33% 5% / 0.25), 0px 1px 2px -1px hsl(217 33% 5% / 0.30);
+  --shadow: 0px 2px 0px 0px hsl(217 33% 5% / 0.30), 0px 1px 2px -1px hsl(217 33% 5% / 0.35);
+  --shadow-md: 0px 2px 0px 0px hsl(217 33% 5% / 0.35), 0px 2px 4px -1px hsl(217 33% 5% / 0.40);
+  --shadow-lg: 0px 2px 0px 0px hsl(217 33% 5% / 0.40), 0px 4px 6px -1px hsl(217 33% 5% / 0.45);
+  --shadow-xl: 0px 2px 0px 0px hsl(217 33% 5% / 0.45), 0px 8px 10px -1px hsl(217 33% 5% / 0.50);
+  --shadow-2xl: 0px 2px 0px 0px hsl(217 33% 5% / 0.55);
+
+  /* Automatically computed borders - intensity can be controlled by the user by the --opaque-button-border-intensity setting */
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  h1 {
+    font-size: 1.875rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  button, input, select, textarea {
+    font-family: inherit;
+  }
+
+  table {
+    font-size: 0.875rem;
+  }
+
+  th {
+    font-weight: 600;
+    font-family: 'Poppins', 'Inter', sans-serif;
+  }
+}
+
+/**
+ * Using the elevate system.
+ * Automatic contrast adjustment.
+ *
+ * <element className="hover-elevate" />
+ * <element className="active-elevate-2" />
+ *
+ * // Using the tailwind utility when a data attribute is "on"
+ * <element className="toggle-elevate data-[state=on]:toggle-elevated" />
+ * // Or manually controlling the toggle state
+ * <element className="toggle-elevate toggle-elevated" />
+ *
+ * Elevation systems have to handle many states.
+ * - not-hovered, vs. hovered vs. active  (three mutually exclusive states)
+ * - toggled or not
+ * - focused or not (this is not handled with these utilities)
+ *
+ * Even without handling focused or not, this is six possible combinations that
+ * need to be distinguished from eachother visually.
+ */
+@layer utilities {
+
+  /* Hide ugly search cancel button in Chrome until we can style it properly */
+  input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  /* Placeholder styling for contentEditable div */
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+  }
+
+  /* .no-default-hover-elevate/no-default-active-elevate is an escape hatch so consumers of
+   * buttons/badges can remove the automatic brightness adjustment on interactions
+   * and program their own. */
+  .no-default-hover-elevate {}
+
+  .no-default-active-elevate {}
+
+
+  /**
+   * Toggleable backgrounds go behind the content. Hoverable/active goes on top.
+   * This way they can stack/compound. Both will overlap the parent's borders!
+   * So borders will be automatically adjusted both on toggle, and hover/active,
+   * and they will be compounded.
+   */
+  .toggle-elevate::before,
+  .toggle-elevate-2::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    /*border-radius: inherit;   match rounded corners */
+    border-radius: inherit;
+    z-index: -1;
+    /* sits behind content but above backdrop */
+  }
+
+  .toggle-elevate.toggle-elevated::before {
+    background-color: var(--elevate-2);
+  }
+
+  /* If there's a 1px border, adjust the inset so that it covers that parent's border */
+  .border.toggle-elevate::before {
+    inset: -1px;
+  }
+
+  /* Does not work on elements with overflow:hidden! */
+  .hover-elevate:not(.no-default-hover-elevate),
+  .active-elevate:not(.no-default-active-elevate),
+  .hover-elevate-2:not(.no-default-hover-elevate),
+  .active-elevate-2:not(.no-default-active-elevate) {
+    position: relative;
+    z-index: 0;
+  }
+
+  .hover-elevate:not(.no-default-hover-elevate)::after,
+  .active-elevate:not(.no-default-active-elevate)::after,
+  .hover-elevate-2:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:not(.no-default-active-elevate)::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    /*border-radius: inherit;   match rounded corners */
+    border-radius: inherit;
+    z-index: 999;
+    /* sits in front of content */
+  }
+
+  .hover-elevate:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-1);
+  }
+
+  .hover-elevate-2:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-2);
+  }
+
+  /* If there's a 1px border, adjust the inset so that it covers that parent's border */
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
+    inset: -1px;
+  }
+}
+
+/* Hide print elements on screen */
+@media screen {
+  .print-college-header,
+  .print-metadata,
+  .print-footer {
+    display: none;
+  }
+}
+
+/* ============================================
+   PROFESSIONAL PRINT STYLES FOR ABBOTT LAW COLLEGE
+   ============================================ */
+@media print {
+  /* Page Setup - Minimal margins for maximum content */
+  @page {
+    size: A4;
+    margin: 8mm 8mm 8mm 8mm;
+  }
+
+  /* Hide UI Elements */
+  nav,
+  aside,
+  button,
+  .sidebar,
+  .print-hide,
+  .no-print,
+  [data-sidebar],
+  [data-radix-portal],
+  [role="dialog"],
+  [role="menu"],
+  [role="navigation"],
+  .toast,
+  .toaster,
+  input,
+  select,
+  textarea,
+  form,
+  svg {
+    display: none !important;
+  }
+
+  /* Reset Everything */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    background-image: none !important;
+  }
+
+  /* Professional Body Typography - Compact for max content */
+  html, body {
+    background: #fff !important;
+    color: #1f2937 !important;
+    font-family: "Times New Roman", Times, Georgia, serif !important;
+    font-size: 9pt !important;
+    line-height: 1.2 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Full Width Layout */
+  html, body, #root, main, .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Show Print Elements */
+  .print-college-header,
+  .print-metadata,
+  .print-footer {
+    display: block !important;
+  }
+  
+  /* Show logo in print header */
+  .print-keep,
+  img.print-keep {
+    display: block !important;
+    visibility: visible !important;
+  }
+  
+  .print-college-header img {
+    display: block !important;
+    visibility: visible !important;
+    width: 40pt !important;
+    height: 40pt !important;
+    margin: 0 auto 4pt auto !important;
+  }
+
+  /* Professional Report Title - Compact */
+  h1 {
+    font-family: "Times New Roman", Times, Georgia, serif !important;
+    font-size: 11pt !important;
+    font-weight: bold !important;
+    color: #111827 !important;
+    text-align: center !important;
+    margin: 0 0 4pt 0 !important;
+    padding: 0 0 3pt 0 !important;
+    border-bottom: 1pt solid #111827 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5pt !important;
+  }
+
+  /* Section Headers - Compact */
+  h2 {
+    font-family: "Times New Roman", Times, Georgia, serif !important;
+    font-size: 10pt !important;
+    font-weight: bold !important;
+    color: #1f2937 !important;
+    margin: 6pt 0 3pt 0 !important;
+    padding: 0 0 2pt 0 !important;
+    border-bottom: 0.5pt solid #6b7280 !important;
+  }
+
+  h3 {
+    font-family: "Times New Roman", Times, Georgia, serif !important;
+    font-size: 9pt !important;
+    font-weight: bold !important;
+    color: #374151 !important;
+    margin: 4pt 0 2pt 0 !important;
+  }
+
+  /* Paragraphs - Compact */
+  p {
+    font-family: "Times New Roman", Times, Georgia, serif !important;
+    font-size: 8pt !important;
+    color: #1f2937 !important;
+    margin: 0 0 2pt 0 !important;
+    text-align: justify !important;
+  }
+
+  /* Professional Tables - Compact for maximum rows */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 4pt 0 !important;
+    font-size: 8pt !important;
+    page-break-inside: auto !important;
+  }
+
+  thead {
+    display: table-header-group !important;
+  }
+
+  thead tr {
+    background: #1f2937 !important;
+  }
+
+  thead th {
+    background: #1f2937 !important;
+    color: #ffffff !important;
+    font-family: "Times New Roman", Times, Georgia, serif !important;
+    font-weight: bold !important;
+    font-size: 8pt !important;
+    padding: 3pt 4pt !important;
+    border: 0.5pt solid #1f2937 !important;
+    text-align: left !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.3pt !important;
+  }
+
+  tbody tr {
+    page-break-inside: avoid !important;
+  }
+
+  tbody td {
+    font-family: "Times New Roman", Times, Georgia, serif !important;
+    font-size: 8pt !important;
+    padding: 2pt 4pt !important;
+    border: 0.5pt solid #d1d5db !important;
+    color: #1f2937 !important;
+    background: #ffffff !important;
+    vertical-align: middle !important;
+    line-height: 1.1 !important;
+  }
+
+  tbody tr:nth-child(even) td {
+    background: #f9fafb !important;
+  }
+
+  /* Cards - Clean Print - No padding */
+  .card {
+    background: #fff !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Badges - Compact */
+  .badge,
+  span[class*="badge"] {
+    font-family: "Times New Roman", Times, Georgia, serif !important;
+    font-size: 7pt !important;
+    font-weight: bold !important;
+    padding: 1pt 3pt !important;
+    border: 0.5pt solid #6b7280 !important;
+    background: #f3f4f6 !important;
+    color: #1f2937 !important;
+    border-radius: 1pt !important;
+  }
+
+  /* Statistics Display */
+  .text-3xl,
+  .text-2xl {
+    font-family: "Times New Roman", Times, Georgia, serif !important;
+    font-size: 14pt !important;
+    font-weight: bold !important;
+    color: #111827 !important;
+  }
+
+  /* Links */
+  a {
+    color: #1f2937 !important;
+    text-decoration: none !important;
+  }
+
+  /* Strong/Bold Text */
+  strong, b, .font-bold, .font-semibold, .font-medium {
+    font-weight: bold !important;
+    color: #111827 !important;
+  }
+
+  /* Muted Text */
+  .text-muted-foreground,
+  .text-gray-500,
+  .text-gray-600 {
+    color: #6b7280 !important;
+    font-size: 9pt !important;
+  }
+
+  /* Status Colors - Keep Important */
+  .text-green-600, .text-green-500 {
+    color: #059669 !important;
+  }
+  .text-red-600, .text-red-500 {
+    color: #dc2626 !important;
+  }
+  .text-blue-600, .text-blue-500 {
+    color: #2563eb !important;
+  }
+  .text-orange-600, .text-orange-500 {
+    color: #ea580c !important;
+  }
+
+  /* Page Breaks */
+  .page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+  .avoid-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+  
+  /* Force page breaks with inline styles */
+  [style*="pageBreakAfter: always"],
+  [style*="page-break-after: always"] {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+  
+  [style*="pageBreakBefore: always"],
+  [style*="page-break-before: always"] {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  /* College Header - Compact */
+  .print-college-header {
+    text-align: center !important;
+    margin: 0 0 6pt 0 !important;
+    padding: 0 0 4pt 0 !important;
+    border-bottom: 1pt solid #1f2937 !important;
+  }
+
+  .print-college-header h1 {
+    font-size: 12pt !important;
+    letter-spacing: 1pt !important;
+    margin: 0 0 2pt 0 !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .print-college-header p {
+    font-size: 8pt !important;
+    color: #4b5563 !important;
+    margin: 1pt 0 !important;
+  }
+
+  /* Print Footer - Compact */
+  .print-footer {
+    margin: 6pt 0 0 0 !important;
+    padding: 4pt 0 0 0 !important;
+    border-top: 0.5pt solid #9ca3af !important;
+    text-align: center !important;
+    font-size: 9pt !important;
+    color: #6b7280 !important;
+  }
+
+  /* Grid becomes block for print */
+  .grid, .flex {
+    display: block !important;
+  }
+
+  /* Remove rounded corners */
+  * {
+    border-radius: 0 !important;
+  }
+
+  /* Spacing adjustments */
+  .space-y-6 > * + *,
+  .space-y-4 > * + * {
+    margin-top: 8pt !important;
+  }
+
+  .gap-4, .gap-6 {
+    gap: 0 !important;
+  }
+
+  .p-6, .p-4, .px-6, .py-4 {
+    padding: 4pt !important;
+  }
+
+  .m-4, .m-6, .mx-auto {
+    margin: 0 !important;
+  }
+}
