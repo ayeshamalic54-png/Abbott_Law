@@ -2,7 +2,7 @@
  * Database Seed Script
  * Run with: npm run seed
  * 
- * This script creates 7 test users for traditional login.
+ * This script creates test users for traditional login.
  * No Replit Auth - uses username/password.
  */
 
@@ -77,10 +77,19 @@ const testUsers = [
     lastName: "University",
     role: "hazara_university" as const,
   },
+  {
+    id: "pbc-001",
+    username: "pbc",
+    password: "pbc123",
+    email: "pbc@barcouncil.gov.pk",
+    firstName: "Pakistan Bar",
+    lastName: "Council",
+    role: "pbc" as const,
+  },
 ];
 
 async function seed() {
-  console.log("🌱 Seeding 7 test users with hashed passwords...");
+  console.log("🌱 Seeding test users with hashed passwords...");
 
   try {
     for (const user of testUsers) {
@@ -98,25 +107,15 @@ async function seed() {
       } else {
         // Update existing user (omit id from update)
         await db.update(users).set(userWithHashedPassword).where(eq(users.username, user.username));
-        console.log(`♻️  Updated user: ${user.username} (${user.role})`);
+        console.log(`🔄 Updated user: ${user.username} (${user.role})`);
       }
     }
 
-    console.log("\n✨ All 7 test users created!");
-    console.log("\n📋 Test Credentials:");
-    testUsers.forEach(u => {
-      console.log(`   ${u.username} / ${u.password} - ${u.role}`);
-    });
-
+    console.log("🎉 Seeding completed successfully!");
   } catch (error) {
-    console.error("❌ Seed failed:", error);
-    throw error;
+    console.error("❌ Seeding failed:", error);
+    process.exit(1);
   }
 }
 
-seed()
-  .then(() => process.exit(0))
-  .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  });
+seed();
