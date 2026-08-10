@@ -343,9 +343,19 @@ function AppContent() {
         <div className="flex h-screen w-full">
           <AppSidebar />
           <div className="flex flex-col flex-1 overflow-hidden">
-            <header className="flex items-center gap-2 border-b border-border bg-background px-3 py-3 sm:px-4 md:px-6">
-              <SidebarTrigger data-testid="button-sidebar-toggle" className="h-9 w-9 shrink-0" />
-              <div className="flex-1"></div>
+            <header className="flex items-center justify-between border-b border-border bg-background px-3 py-2.5 sm:px-4 md:px-6">
+              <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+                <SidebarTrigger data-testid="button-sidebar-toggle" className="h-9 w-9 shrink-0" />
+                <div className="flex items-center gap-2 md:hidden min-w-0">
+                  <img src="/abbott-law-logo.jpg" alt="Abbott Law College" className="h-7 w-7 object-contain shrink-0" />
+                  <span className="text-xs sm:text-sm font-heading font-bold text-foreground truncate">Abbott Law College</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <span className="text-[11px] sm:text-xs font-semibold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-primary/10 text-primary capitalize">
+                  {user?.role?.replace('_', ' ') || 'User'}
+                </span>
+              </div>
             </header>
             <main className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-6">
               <Router />
