@@ -3,8 +3,7 @@ import "dotenv/config";
 import express, { type Request, Response, NextFunction } from "express";
 import session from "express-session";
 import passport from "passport";
-import MemoryStore from "memorystore";
-
+import MemoryStoreFn from "memorystore";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
@@ -30,6 +29,7 @@ app.use(
 app.use(express.urlencoded({ extended: false, limit: "50mb" }));
 
 /* -------------------- SESSION SETUP (IMPORTANT FIX) -------------------- */
+const MemoryStore = (MemoryStoreFn as any).default || MemoryStoreFn;
 const Store = MemoryStore(session);
 
 app.use(
