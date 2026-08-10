@@ -108,7 +108,10 @@
     "@types/passport-local": "^1.0.38",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
-    "@types/ws": "^8.5.13"
+    "@types/ws": "^8.5.13",
+    "@replit/vite-plugin-cartographer": "^0.4.4",
+    "@replit/vite-plugin-dev-banner": "^0.1.1",
+    "@replit/vite-plugin-runtime-error-modal": "^0.0.4"
   },
   "devDependencies": {},
   "optionalDependencies": {
